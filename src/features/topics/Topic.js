@@ -7,15 +7,15 @@ import { selectTopics } from "./topicsSlice";
 // import selectors
 
 export default function Topic() {
-  const topics = useSelector(selectTopics);  // replace with selector
+  const topics = useSelector(selectTopics); // replace with selector
   const quizzes = useSelector(selectQuizzes); // replace with selector
   const { topicId } = useParams();
   const topic = topics[topicId];
 
-  if(!topic) {
-    return <Navigate to={ROUTES.topicsRoute()} replace/>
+  if (!topic) {
+    return <Navigate to={ROUTES.topicsRoute()} replace />;
   }
-  
+
   const quizzesForTopic = topic.quizIds.map((quizId) => quizzes[quizId]);
 
   return (
